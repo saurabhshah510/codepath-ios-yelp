@@ -19,17 +19,24 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 10
+        if businesses != nil {
+            return businesses!.count
+        }
+        else{
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        return UITableViewCell()
+        let cell = searchResultsTableView.dequeueReusableCellWithIdentifier("BusinessCell", forIndexPath: indexPath) as! BusinessCell
+        cell.business = self.businesses[indexPath.row]
+        return cell
     }
     
     func callYelpApi(){
         Business.searchWithTerm("Thai", completion: { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = businesses
-            
+            self.searchResultsTableView.reloadData()
             for business in businesses {
                 print(business.name!)
                 print(business.address!)
