@@ -29,7 +29,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9yt-fe-ruD">
-                                                    <rect key="frame" x="8" y="0.0" width="65" height="65"/>
+                                                    <rect key="frame" x="8" y="8" width="65" height="65"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="65" id="0FN-OR-GdL"/>
                                                         <constraint firstAttribute="width" constant="65" id="1nU-mn-XAp"/>
@@ -78,7 +78,7 @@
                                             <constraints>
                                                 <constraint firstItem="9yt-fe-ruD" firstAttribute="leading" secondItem="eXf-aJ-WyG" secondAttribute="leading" constant="8" id="4Jk-aj-zsG"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9yt-fe-ruD" secondAttribute="bottom" constant="12" id="L2G-Af-YEg"/>
-                                                <constraint firstItem="9yt-fe-ruD" firstAttribute="top" secondItem="eXf-aJ-WyG" secondAttribute="top" id="QQO-2h-u7a"/>
+                                                <constraint firstItem="9yt-fe-ruD" firstAttribute="top" secondItem="eXf-aJ-WyG" secondAttribute="top" constant="8" id="QQO-2h-u7a"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
