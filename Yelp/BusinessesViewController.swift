@@ -15,6 +15,8 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.searchResultsTableView.rowHeight = UITableViewAutomaticDimension
+        self.searchResultsTableView.estimatedRowHeight = 120
         callYelpApi()
     }
     
