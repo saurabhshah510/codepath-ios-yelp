@@ -8,11 +8,16 @@
 
 import UIKit
 
+@objc protocol FiltersViewControllerDelegate{
+    optional func filtersViewController(filtersViewController: FiltersViewController, didUpdateFilters filters: [String: AnyObject])
+}
+
 class FiltersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SwitchCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var categories: [[String:String]]!
     var switchStates =  [Int: Bool]()
+    weak var delegate: FiltersViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +59,8 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
 
     @IBAction func onSearchButton(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
+        let filters = [String:AnyObject]()
+        delegate?.filtersViewController?(self, didUpdateFilters: filters)
 
     }
     
