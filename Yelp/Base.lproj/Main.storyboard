@@ -173,6 +173,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="12p-mS-AoC">
                                                     <rect key="frame" x="257" y="25" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="switchValueChanged:" destination="y4I-Ci-uBv" eventType="valueChanged" id="vmK-oV-5wp"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -188,6 +191,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bfv-Lj-LcI" id="yog-XL-dH3"/>
+                                    <outlet property="delegate" destination="bfv-Lj-LcI" id="ofr-6g-zEl"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
