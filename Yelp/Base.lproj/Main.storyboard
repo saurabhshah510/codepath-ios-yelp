@@ -136,6 +136,67 @@
             </objects>
             <point key="canvasLocation" x="1485" y="338"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="2J8-ED-UuZ">
+            <objects>
+                <viewController id="bfv-Lj-LcI" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nfk-hH-kR5"/>
+                        <viewControllerLayoutGuide type="bottom" id="TFv-Ge-s3M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6ia-KE-IC4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tfg-CH-y7U">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwitchCell" rowHeight="81" id="y4I-Ci-uBv" customClass="SwitchCell" customModule="Yelp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="81"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y4I-Ci-uBv" id="qME-qn-bGU">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEK-j6-c5X">
+                                                    <rect key="frame" x="32" y="30" width="84" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="12p-mS-AoC">
+                                                    <rect key="frame" x="257" y="25" width="51" height="31"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="12p-mS-AoC" firstAttribute="centerY" secondItem="qME-qn-bGU" secondAttribute="centerY" id="HGs-D5-VUK"/>
+                                                <constraint firstItem="aEK-j6-c5X" firstAttribute="leading" secondItem="qME-qn-bGU" secondAttribute="leading" constant="14" id="cOn-PA-HoE"/>
+                                                <constraint firstAttribute="trailing" secondItem="12p-mS-AoC" secondAttribute="trailing" constant="14" id="f3G-bf-3eX"/>
+                                                <constraint firstItem="aEK-j6-c5X" firstAttribute="centerY" secondItem="qME-qn-bGU" secondAttribute="centerY" id="x6s-yz-AHV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="onSwitch" destination="12p-mS-AoC" id="l2B-wg-vfz"/>
+                                            <outlet property="switchLabel" destination="aEK-j6-c5X" id="X0k-Qn-v9D"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TFv-Ge-s3M" firstAttribute="top" secondItem="Tfg-CH-y7U" secondAttribute="bottom" id="SWg-Fm-0Wa"/>
+                            <constraint firstItem="Tfg-CH-y7U" firstAttribute="leading" secondItem="6ia-KE-IC4" secondAttribute="leading" id="WLN-TZ-Wmd"/>
+                            <constraint firstAttribute="trailing" secondItem="Tfg-CH-y7U" secondAttribute="trailing" id="XgS-KV-A3o"/>
+                            <constraint firstItem="Tfg-CH-y7U" firstAttribute="top" secondItem="6ia-KE-IC4" secondAttribute="top" id="bXO-4f-6FF"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hnE-CX-2K6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866" y="338"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="ml2-E0-Ceh">
             <objects>
