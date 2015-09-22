@@ -16,6 +16,8 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
 
     @IBOutlet weak var tableView: UITableView!
     var categories: [[String:String]]!
+    var sortBys = ["Best Matched","Distance", "Highest Rated"]
+    var sortBySelected: Int?
     var switchStates =  [Int: Bool]()
     var dealsState = false
     weak var delegate: FiltersViewControllerDelegate?
@@ -33,7 +35,7 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -41,6 +43,8 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
         case 0:
             return "Deals"
         case 1:
+            return "Sort By"
+        case 2:
             return "Categories"
         default:
             return ""
@@ -52,6 +56,8 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
         case 0:
             return 1
         case 1:
+            return self.sortBys.count
+        case 2:
             if self.categories != nil{
                 return self.categories.count
             }
@@ -67,6 +73,8 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
         case 0:
             cell = getDealsCell(indexPath)
         case 1:
+            cell = getSortByCell(indexPath)
+        case 2:
             cell = getCategoryCell(indexPath)
         default:
             cell = UITableViewCell()
@@ -81,6 +89,33 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func dealsCell(dealsCell: DealsCell, didChangeValue value: Bool) {
         self.dealsState = value
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 1{
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            let tempIndex = self.sortBySelected ?? 0
+            let prevIndexPath = NSIndexPath.init(forRow: tempIndex, inSection: indexPath.section)
+            self.sortBySelected = indexPath.row
+            tableView.reloadRowsAtIndexPaths([prevIndexPath, indexPath], withRowAnimation: .Automatic)
+        }
+    }
+
+    func getSortByCell(indexPath: NSIndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCellWithIdentifier("SortCell", forIndexPath: indexPath) as! SortCell
+        cell.sortLabel.text = self.sortBys[indexPath.row]
+        if self.sortBySelected != nil{
+            if indexPath.row == self.sortBySelected! {
+                cell.accessoryType = .Checkmark
+            }else{
+                cell.accessoryType = .None
+            }
+            
+        }else{
+            cell.accessoryType = .None
+        }
+        
+        return cell
     }
     
     func getDealsCell(indexPath: NSIndexPath) -> UITableViewCell{
@@ -117,9 +152,9 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
             filters["categories"] = selectedCategories
         }
         filters["deals"] = self.dealsState
+        filters["sort"] = self.sortBySelected
         delegate?.filtersViewController?(self, didUpdateFilters: filters)
     }
-    
     
     func yelpCategories() -> [[String:String]]{
         return [["name" : "Afghan", "code": "afghani"],

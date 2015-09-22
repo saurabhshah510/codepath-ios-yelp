@@ -221,6 +221,29 @@
                                             <outlet property="onSwitch" destination="ygu-n4-dvU" id="ZqQ-gs-7oR"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SortCell" id="glP-8X-UMm" customClass="SortCell" customModule="Yelp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="254" width="320" height="81"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="glP-8X-UMm" id="9Kc-iY-uiE">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqN-Sq-xw6">
+                                                    <rect key="frame" x="139" y="30.5" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sqN-Sq-xw6" firstAttribute="centerX" secondItem="9Kc-iY-uiE" secondAttribute="centerX" id="rkO-fd-v5P"/>
+                                                <constraint firstItem="sqN-Sq-xw6" firstAttribute="centerY" secondItem="9Kc-iY-uiE" secondAttribute="centerY" id="yHW-EY-bFd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="sortLabel" destination="sqN-Sq-xw6" id="YGd-IO-oRF"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="bfv-Lj-LcI" id="yog-XL-dH3"/>
