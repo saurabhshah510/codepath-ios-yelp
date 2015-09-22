@@ -12,9 +12,19 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @IBOutlet weak var searchResultsTableView: UITableView!
     var businesses: [Business]!
+    var searchBar: UISearchBar!
+    var searchItem: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //initializing the search bar
+        searchBar = UISearchBar()
+        searchBar.delegate = self
+        
+        //adding search bar to the navigation bar
+        searchBar.sizeToFit()
+        navigationItem.titleView = searchBar
+        
         self.searchResultsTableView.rowHeight = UITableViewAutomaticDimension
         self.searchResultsTableView.estimatedRowHeight = 120
         callYelpApi()
@@ -36,7 +46,8 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func callYelpApi(){
-        Business.searchWithTerm("Thai", completion: { (businesses: [Business]!, error: NSError!) -> Void in
+        let searchTerm = self.searchItem ?? "Restaurants"
+        Business.searchWithTerm(searchTerm, completion: { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = businesses
             self.searchResultsTableView.reloadData()
             for business in businesses {
@@ -70,7 +81,8 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func filtersViewController(filtersViewController: FiltersViewController, didUpdateFilters filters: [String : AnyObject]) {
         let categories = filters["categories"] as? [String]
-        Business.searchWithTerm("Restaurants", sort: nil, categories: categories, deals: nil) { (businesses, error) -> Void in
+        let searchTerm = self.searchItem ?? "Restaurants"
+        Business.searchWithTerm(searchTerm, sort: nil, categories: categories, deals: nil) { (businesses, error) -> Void in
             self.businesses = businesses
             self.searchResultsTableView.reloadData()
         }
@@ -87,4 +99,27 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     */
 
+}
+
+extension BusinessesViewController: UISearchBarDelegate {
+    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        searchBar.setShowsCancelButton(true, animated: true)
+        return true;
+    }
+    
+    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+        searchBar.setShowsCancelButton(false, animated: true)
+        return true;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.searchItem = searchBar.text as String?
+        searchBar.resignFirstResponder()
+        callYelpApi()
+    }
 }
