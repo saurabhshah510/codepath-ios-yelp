@@ -127,7 +127,13 @@
                             <constraint firstItem="VBY-gq-v8E" firstAttribute="top" secondItem="aSf-p6-J5V" secondAttribute="bottom" id="yMk-F3-9qP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Yelp" id="Mg6-iS-Wx8"/>
+                    <navigationItem key="navigationItem" title="Yelp" id="Mg6-iS-Wx8">
+                        <barButtonItem key="leftBarButtonItem" title="Filters" id="pgS-1g-OKa">
+                            <connections>
+                                <segue destination="JSw-8u-cle" kind="modal" id="nE6-I4-USG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchResultsTableView" destination="aSf-p6-J5V" id="mGz-kc-Tqi"/>
                     </connections>
@@ -136,10 +142,10 @@
             </objects>
             <point key="canvasLocation" x="1485" y="338"/>
         </scene>
-        <!--View Controller-->
+        <!--Filters-->
         <scene sceneID="2J8-ED-UuZ">
             <objects>
-                <viewController id="bfv-Lj-LcI" sceneMemberID="viewController">
+                <viewController id="bfv-Lj-LcI" customClass="FiltersViewController" customModule="Yelp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nfk-hH-kR5"/>
                         <viewControllerLayoutGuide type="bottom" id="TFv-Ge-s3M"/>
@@ -153,7 +159,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwitchCell" rowHeight="81" id="y4I-Ci-uBv" customClass="SwitchCell" customModule="Yelp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="81"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y4I-Ci-uBv" id="qME-qn-bGU">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="80.5"/>
@@ -192,10 +198,25 @@
                             <constraint firstItem="Tfg-CH-y7U" firstAttribute="top" secondItem="6ia-KE-IC4" secondAttribute="top" id="bXO-4f-6FF"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Filters" id="qMM-KA-sAd">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="WkS-eF-5iy">
+                            <connections>
+                                <action selector="onCancelButton:" destination="bfv-Lj-LcI" id="l2m-gv-ggQ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Search" id="bs1-Bx-vNs">
+                            <connections>
+                                <action selector="onSearchButton:" destination="bfv-Lj-LcI" id="iSu-rB-RtE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Tfg-CH-y7U" id="BpF-tR-9JT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hnE-CX-2K6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1866" y="338"/>
+            <point key="canvasLocation" x="2398" y="338"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ml2-E0-Ceh">
@@ -214,6 +235,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ij-Ck-nPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="953" y="338"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="H5a-Nc-fMy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JSw-8u-cle" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dyT-nl-xRE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bfv-Lj-LcI" kind="relationship" relationship="rootViewController" id="6Qs-hv-X0B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Irl-AF-MhE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1917" y="338"/>
         </scene>
     </scenes>
 </document>
