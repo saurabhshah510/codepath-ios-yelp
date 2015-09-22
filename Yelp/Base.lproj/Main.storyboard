@@ -190,6 +190,37 @@
                                             <outlet property="switchLabel" destination="aEK-j6-c5X" id="X0k-Qn-v9D"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DealsCell" id="Z5L-US-WnE" customClass="DealsCell" customModule="Yelp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="173" width="320" height="81"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z5L-US-WnE" id="96v-8x-gYU">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Offering A Deal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVG-VB-RG2">
+                                                    <rect key="frame" x="35" y="30" width="149" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ygu-n4-dvU">
+                                                    <rect key="frame" x="257" y="25" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onSwitchValueChange:" destination="Z5L-US-WnE" eventType="valueChanged" id="Xfc-OQ-AYj"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="ygu-n4-dvU" secondAttribute="trailing" constant="14" id="EWW-dW-o1i"/>
+                                                <constraint firstItem="XVG-VB-RG2" firstAttribute="centerY" secondItem="96v-8x-gYU" secondAttribute="centerY" id="TBn-qB-rdu"/>
+                                                <constraint firstItem="XVG-VB-RG2" firstAttribute="leading" secondItem="96v-8x-gYU" secondAttribute="leading" constant="14" id="WmS-cY-UHJ"/>
+                                                <constraint firstItem="ygu-n4-dvU" firstAttribute="centerY" secondItem="96v-8x-gYU" secondAttribute="centerY" id="kKa-NO-VoI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="onSwitch" destination="ygu-n4-dvU" id="ZqQ-gs-7oR"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="bfv-Lj-LcI" id="yog-XL-dH3"/>
