@@ -153,6 +153,7 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         filters["deals"] = self.dealsState
         filters["sort"] = self.sortBySelected
+        print(self.sortBySelected)
         delegate?.filtersViewController?(self, didUpdateFilters: filters)
     }
     

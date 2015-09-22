@@ -50,10 +50,6 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
         Business.searchWithTerm(searchTerm, completion: { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = businesses
             self.searchResultsTableView.reloadData()
-            for business in businesses {
-                print(business.name!)
-                print(business.address!)
-            }
         })
         
         //        Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
@@ -86,7 +82,7 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
         let sort = filters["sort"] as? Int
         var sortYelp:YelpSortMode?
         if sort != nil {
-            sortYelp = YelpSortMode(rawValue: sort! + 1)
+            sortYelp = YelpSortMode(rawValue: sort!)
         }
         let searchTerm = self.searchItem ?? "Restaurants"
         Business.searchWithTerm(searchTerm, sort: sortYelp, categories: categories, deals: deals) { (businesses, error) -> Void in
